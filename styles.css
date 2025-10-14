@@ -1,0 +1,87 @@
+
+:root { --bg:#000; --card:rgba(255,255,255,.06); --muted:rgba(255,255,255,.6); --fg:#fff; --acc:#ff6a00; --safe: env(safe-area-inset-bottom); }
+
+:root { color-scheme: dark; }
+
+/* Dark form controls */
+input, select, textarea {
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  padding: 10px 12px;
+  outline: none;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input::placeholder, textarea::placeholder { color: rgba(255,255,255,.4); }
+
+select { padding-right: 28px; }
+
+/* Button baseline already defined, but make sure it matches */
+button, .btn {
+  background:#111;
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff;
+  border-radius:12px;
+}
+
+/* Autofill (Safari/iOS) */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255,255,255,.06) inset;
+  box-shadow: 0 0 0px 1000px rgba(255,255,255,.06) inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Keep the cards looking like “liquid glass” */
+.card, .tab {
+  backdrop-filter: blur(8px);
+}
+
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, Arial, sans-serif; }
+.main { min-height: 100dvh; display:flex; flex-direction:column; }
+.topbar { position:sticky; top:0; z-index:5; display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,0)); backdrop-filter: blur(8px); }
+.brand { font-weight:700; letter-spacing:.3px; }
+
+.view { flex:1; padding:16px; padding-bottom: calc(16px + var(--safe)); }
+
+.bottombar { position:sticky; bottom:0; display:grid; grid-template-columns: repeat(5, 1fr); gap:8px; padding:10px 12px; background:linear-gradient(0deg, rgba(255,255,255,.06), rgba(0,0,0,0)); backdrop-filter: blur(10px); }
+
+.tab { background: var(--card); border:1px solid rgba(255,255,255,.08); color:var(--fg); padding:10px; border-radius:16px; }
+.tab.active { outline: 2px solid var(--acc); }
+
+.card { background: var(--card); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:14px; }
+.grid2 { display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+.grid3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
+.row { display:flex; gap:8px; align-items:center; }
+.right { margin-left:auto; }
+.pill { background: rgba(255,255,255,.08); padding:4px 10px; border-radius:999px; }
+.label { color: var(--muted); font-size:12px; }
+.small { color: var(--muted); font-size: 12px; }
+.value { font-size: 18px; font-weight:600; }
+
+.btn { background:#111; border:1px solid rgba(255,255,255,.12); color:var(--fg); border-radius:12px; padding:8px 10px; cursor:pointer; }
+.btn.primary { background: var(--acc); color:#000; border-color: transparent; }
+.btn.small { padding:6px 8px; font-size:12px; }
+
+.progress { height: 10px; background: rgba(255,255,255,.08); border-radius:999px; overflow:hidden; }
+.progress > div { height:100%; background: var(--acc); }
+
+.table { width:100%; border-collapse: collapse; }
+.table td { padding:8px; border-top:1px solid rgba(255,255,255,.08); }
+
+.calendar { display:grid; grid-template-columns: repeat(7, 1fr); gap:6px; }
+.day { position:relative; padding:10px; border-radius:16px; background: rgba(255,255,255,.05); min-height:60px; }
+.day .num { font-weight:600; }
+.dot { width:8px; height:8px; border-radius:50%; background:#f59e0b; position:absolute; right:8px; bottom:8px; }
+
+@media (max-width: 720px) {
+  .grid3 { grid-template-columns: 1fr; }
+  .grid2 { grid-template-columns: 1fr; }
+}
